@@ -37,7 +37,6 @@ class Instagram:
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(550)
-        self.browser.save_screenshot('liked.png')
 
     def close_browser(self):
         Setup.close_browser(self)
