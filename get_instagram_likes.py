@@ -36,7 +36,8 @@ class Instagram:
 
         actions.send_keys(Keys.RETURN)
         actions.perform()
-        sleep(550)
+        print('Please wait for 1000 seconds...')
+        sleep(1000)
 
     def close_browser(self):
         Setup.close_browser(self)
