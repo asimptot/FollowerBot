@@ -13,7 +13,7 @@ class Setup:
     def init(self):
         warnings.filterwarnings("ignore")
         chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_argument("start-maximized")
+        chrome_options.add_argument('--window-size=1036, 674')
         chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
         chrome_options.add_experimental_option('useAutomationExtension', False)
         chrome_options.add_argument('--headless')
