@@ -38,6 +38,11 @@ class Instagram:
         actions.perform()
         print('Please wait for 1000 seconds...')
         sleep(1000)
+        
+        if("Başarıyla Gönderildi" in self.browser.page_source):
+            print(f"\n10 followers followed you!")            
+        else:
+            print(f"\nAn error occured!")
 
     def close_browser(self):
         Setup.close_browser(self)
