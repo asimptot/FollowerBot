@@ -18,24 +18,14 @@ class Instagram:
         self.browser.get('https://tolinay.com/instagram-takipci-hilesi')
         sleep(4)
 
-        N = 6
-
         actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys(username)
-        actions.perform()
-        sleep(4)
-
-        actions = actions.send_keys(Keys.TAB)
-        actions.perform()
+        elm = self.browser.find_element_by_name('servis_veri')
+        elm.send_keys(username)
         sleep(2)
 
         actions.send_keys(Keys.RETURN)
         actions.perform()
+        
         print('Please wait for 1000 seconds...')
         sleep(1000)
         
