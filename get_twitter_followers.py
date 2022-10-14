@@ -43,24 +43,10 @@ class Twitter:
         tid_btn.click()
         sleep(2)
 
-        self.browser.refresh()
-        sleep(5)
-
-        N = 15  # number of times you want to press TAB
-
-        for _ in range(N):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
-        sleep(2)
-
         self.browser.get('https://www.youlikehits.com/newaddtwitter.php')
         sleep(5)
 
-        N = 14  # number of times you want to press TAB
+        N = 14
 
         for _ in range(N):
             actions = actions.send_keys(Keys.TAB)
@@ -82,7 +68,7 @@ class Twitter:
         self.browser.get('https://www.youlikehits.com/websites.php')
 
         while(True):
-            N = 15  # number of times you want to press TAB
+            N = 15
             sleep(5)
 
             for _ in range(N):
