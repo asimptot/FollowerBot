@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-username = input('What is your username?\n')
+username = input('What is your twitter username?\n')
 
 class Twitter:
 
@@ -19,11 +19,11 @@ class Twitter:
         sleep(10)
 
         uid = self.browser.find_element(By.ID, 'username')
-        uid.send_keys('maguire_reyiz') #tewep47442@haboty.com
+        uid.send_keys('YOULIKEHITS USERNAME') 
         sleep(2)
 
         pwd = self.browser.find_element(By.ID, 'password')
-        pwd.send_keys('123abc123ABC*')
+        pwd.send_keys('YOULIKEHITS PASSWORD')
         sleep(2)
 
         btn = self.browser.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input')
