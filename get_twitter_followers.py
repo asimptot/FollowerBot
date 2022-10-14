@@ -16,6 +16,7 @@ class Twitter:
     def go_to_website(self):
         sleep(4)
         self.browser.get('https://www.youlikehits.com/login.php')
+        print('Followers are sending during runtime...')
         sleep(10)
 
         uid = self.browser.find_element(By.ID, 'username')
