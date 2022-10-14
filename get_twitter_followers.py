@@ -9,7 +9,6 @@ from selenium.webdriver.support.ui import WebDriverWait
 username = input('What is your twitter username?\n')
 
 class Twitter:
-
     def setup(self):
         Setup.init(self)
 
