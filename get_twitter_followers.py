@@ -11,87 +11,22 @@ username = input('What is your twitter username?\n')
 class Twitter:
     def setup(self):
         Setup.init(self)
+        print('Followers are sending... Please do not terminate the program.')
 
-    def go_to_website(self):
-        sleep(4)
-        self.browser.get('https://www.youlikehits.com/login.php')
-        print('Followers are sending during runtime. Please do not terminate the program...')
-        sleep(10)
+    def increase_credit(self):
+        # You must add your Twitter account to YouLikeHits system.
+        while (True):
+            self.browser.get('https://www.youlikehits.com/youtubenew2.php')
+            sleep(4)
 
-        uid = self.browser.find_element(By.ID, 'username')
-        uid.send_keys('YOULIKEHITS USERNAME') 
-        sleep(2)
-
-        pwd = self.browser.find_element(By.ID, 'password')
-        pwd.send_keys('YOULIKEHITS PASSWORD')
-        sleep(2)
-
-        btn = self.browser.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input')
-        btn.click()
-        sleep(2)
-
-        self.browser.get('https://www.youlikehits.com/newaddtwitter.php')
-        sleep(5)
-
-        actions = ActionChains(self.browser)
-
-        tid = self.browser.find_element(By.ID, 'username')
-        tid.send_keys(username)
-        sleep(2)
-
-        tid_btn = self.browser.find_element(By.CLASS_NAME, 'followbutton')
-        tid_btn.click()
-        sleep(2)
-
-        self.browser.get('https://www.youlikehits.com/newaddtwitter.php')
-        sleep(5)
-
-        N = 14
-
-        for _ in range(N):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys('30')
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
-        sleep(2)
-
-        self.browser.get('https://www.youlikehits.com/websites.php')
-
-        while(True):
-            N = 15
-            sleep(5)
-
-            for _ in range(N):
-                actions = actions.send_keys(Keys.TAB)
-            actions.perform()
-            sleep(2)
-
-            actions.send_keys(Keys.RETURN)
-            actions.perform()
-            sleep(30)
-
-            self.browser.switch_to.window(self.browser.window_handles[1])
-            self.browser.close()
-            sleep(5)
-            self.browser.switch_to.window(self.browser.window_handles[0])
-            self.browser.refresh()
+            yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
+            yt_view.click()
+            sleep(130)
 
     def close_browser(self):
         Setup.close_browser(self)
 
 twt = Twitter()
 twt.setup()
-
-while(True):
-    twt.go_to_website()
+twt.increase_credit()
 twt.close_browser()
