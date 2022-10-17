@@ -6,10 +6,9 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-username = input('What is post link?\n')
+username = input('What is your post link?\n')
 
 class Instagram:
-
     def setup(self):
         Setup.init(self)
 
@@ -18,26 +17,25 @@ class Instagram:
         self.browser.get('https://tolinay.com/instagram-begeni-hilesi')
         sleep(4)
 
-        N = 6
-
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
+        uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
+        uid.send_keys(username)
         sleep(2)
 
-        actions.send_keys(username)
-        actions.perform()
-        sleep(4)
+        button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
+        button.click()
 
-        actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        sleep(2)
-
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
         print('Please wait for 1000 seconds...')
         sleep(1000)
+
+        if("Başarıyla Gönderildi" in self.browser.page_source):
+            print(f"\nYou got 10 likes!")
+            self.browser.save_screenshot('liked.png')
+        elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
+            print(f"\nError! Do not run the program fast mode!")
+            self.browser.save_screenshot('error.png')
+        else:
+            print(f"\nError! Your credits have been expired!")
+            self.browser.save_screenshot('error.png')
 
     def close_browser(self):
         Setup.close_browser(self)
