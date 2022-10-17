@@ -24,8 +24,8 @@ class Instagram:
         button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
         button.click()
 
-        print('Please wait for 1000 seconds...')
-        sleep(1000)
+        element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[1]/div/div/div[1]/div'))
+        WebDriverWait(self.browser, 1000).until(element_present)
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
             print(f"\nYou got 10 likes!")
