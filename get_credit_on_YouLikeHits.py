@@ -24,6 +24,7 @@ class Instagram:
         btn.click()
         sleep(2)
         #You must add your social media account to YouLikeHits system.
+        print('Getting credits... Please do not terminate the program.')
         while (True):
             self.browser.get('https://www.youlikehits.com/youtubenew2.php')
             sleep(4)
