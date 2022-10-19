@@ -15,10 +15,10 @@ class Instagram:
         self.browser.get('https://www.youlikehits.com/login.php')
         sleep(10)
         uid = self.browser.find_element(By.ID, 'username')
-        uid.send_keys('maguire_reyiz')  # tewep47442@haboty.com
+        uid.send_keys(YOUR YOULIKEHITS USERNAME)  
         sleep(2)
         pwd = self.browser.find_element(By.ID, 'password')
-        pwd.send_keys('123abc123ABC*')
+        pwd.send_keys(YOUR YOULIKEHITS PASSWORD)
         sleep(2)
         btn = self.browser.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input')
         btn.click()
