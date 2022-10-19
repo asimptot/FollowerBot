@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-username = input('What is your post link?\n')
+username = input('What is your Instagram username?\n')
 
 class Instagram:
     def setup(self):
@@ -14,7 +14,7 @@ class Instagram:
 
     def go_to_website(self):
         sleep(4)
-        self.browser.get('https://tolinay.com/instagram-begeni-hilesi')
+        self.browser.get('https://tolinay.com/instagram-takipci-hilesi')
         sleep(4)
 
         uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
@@ -28,8 +28,8 @@ class Instagram:
         WebDriverWait(self.browser, 1000).until(element_present)
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
-            print(f"\nYou got 10 likes!")
-            self.browser.save_screenshot('liked.png')
+            print(f"\n10 followers followed you!")
+            self.browser.save_screenshot('followed.png')
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
             self.browser.save_screenshot('error.png')
