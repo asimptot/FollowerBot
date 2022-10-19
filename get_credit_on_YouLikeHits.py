@@ -36,7 +36,5 @@ class Instagram:
 
 ig = Instagram()
 ig.setup()
-
-while(True):
-    ig.go_to_website()
+ig.go_to_website()
 ig.close_browser()
