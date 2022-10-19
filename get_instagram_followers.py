@@ -6,7 +6,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-username = input('What is your Instagram username?\n')
+username = input('What is your post link?\n')
 
 class Instagram:
     def setup(self):
@@ -14,7 +14,7 @@ class Instagram:
 
     def go_to_website(self):
         sleep(4)
-        self.browser.get('https://tolinay.com/instagram-takipci-hilesi')
+        self.browser.get('https://tolinay.com/instagram-begeni-hilesi')
         sleep(4)
 
         uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
@@ -28,39 +28,14 @@ class Instagram:
         WebDriverWait(self.browser, 1000).until(element_present)
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
-            print(f"\n10 followers followed you!")
-            self.browser.save_screenshot('followed.png')
+            print(f"\nYou got 10 likes!")
+            self.browser.save_screenshot('liked.png')
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
             self.browser.save_screenshot('error.png')
         else:
-            print(f"\nError! Your credits have been expired on Tolinay! Getting credit on YouLikeHits...")
-
-            sleep(4)
-            self.browser.get('https://www.youlikehits.com/login.php')
-            sleep(10)
-
-            uid = self.browser.find_element(By.ID, 'username')
-            uid.send_keys('YOUR YOULIKEHITS USERNAME')
-            sleep(2)
-
-            pwd = self.browser.find_element(By.ID, 'password')
-            pwd.send_keys('YOUR YOULIKEHITS PASSWORD')
-            sleep(2)
-
-            btn = self.browser.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input')
-            btn.click()
-            sleep(2)
-
-            #You must add your Instagram account to YouLikeHits system.
-
-            while (True):
-                self.browser.get('https://www.youlikehits.com/youtubenew2.php')
-                sleep(4)
-
-                yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
-                yt_view.click()
-                sleep(130)
+            print(f"\nError! Your credits have been expired! Please change your Instagram username...")
+            self.browser.save_screenshot('error.png')
 
     def close_browser(self):
         Setup.close_browser(self)
