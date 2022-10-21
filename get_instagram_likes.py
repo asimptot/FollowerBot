@@ -34,7 +34,7 @@ class Instagram:
             print(f"\nError! Do not run the program fast mode!")
             self.browser.save_screenshot('error.png')
         else:
-            print(f"\nError! Your credits have been expired! Please change your Instagram username...")
+            print(f"\nError! Your credits have been expired! Please change your Instagram username.")
             self.browser.save_screenshot('error.png')
 
     def close_browser(self):
