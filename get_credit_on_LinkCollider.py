@@ -2,11 +2,8 @@ from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
-class Instagram:
+class LinkCollider:
     def setup(self):
         Setup.init(self)
 
@@ -16,7 +13,7 @@ class Instagram:
         sleep(10)
 
         uid = self.browser.find_element(By.NAME, 'email')
-        uid.send_keys('YOUR LINKCOLLIDER EMAIL ADDRESS')
+        uid.send_keys('YOUR LINKCOLLIDER USERNAME')
         sleep(2)
         pwd = self.browser.find_element(By.NAME, 'pw')
         pwd.send_keys('YOUR LINKCOLLIDER PASSWORD')
@@ -24,12 +21,17 @@ class Instagram:
         btn = self.browser.find_element(By.XPATH, '//*[@id="login"]/div[3]/div[3]/div[2]/button')
         btn.click()
         sleep(2)
-        #You must add your social media account to YouLikeHits system.
-        print('Getting credits... Please do not terminate the program.')
-        self.browser.get('https://www.linkcollider.com/page/activity/autosurf')
-        while(True):
-            sleep(2)
 
-ig = Instagram()
-ig.setup()
-ig.go_to_website()
+        print('Getting credits... Please do not terminate the program.')
+
+        for i in range(20):
+            self.browser.get('https://www.linkcollider.com/page/activity/autosurf')
+            sleep(35)
+
+    def close_browser(self):
+        Setup.close_browser(self)
+
+lc = LinkCollider()
+lc.setup()
+lc.go_to_website()
+lc.close_browser()
