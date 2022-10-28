@@ -16,10 +16,10 @@ class Instagram:
         sleep(10)
 
         uid = self.browser.find_element(By.NAME, 'email')
-        uid.send_keys('formaretro@gmail.com')
+        uid.send_keys('YOUR LINKCOLLIDER EMAIL ADDRESS')
         sleep(2)
         pwd = self.browser.find_element(By.NAME, 'pw')
-        pwd.send_keys('10061144')
+        pwd.send_keys('YOUR LINKCOLLIDER PASSWORD')
         sleep(2)
         btn = self.browser.find_element(By.XPATH, '//*[@id="login"]/div[3]/div[3]/div[2]/button')
         btn.click()
