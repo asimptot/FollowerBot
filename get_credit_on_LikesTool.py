@@ -16,10 +16,10 @@ class Instagram:
         sleep(10)
 
         uid = self.browser.find_element(By.NAME, 'LoginForm[username]')
-        uid.send_keys('formaretro@gmail.com')
+        uid.send_keys('YOUR LIKESTOOL USERNAME/EMAIL ADDRESS')
         sleep(2)
         pwd = self.browser.find_element(By.NAME, 'LoginForm[password]')
-        pwd.send_keys('10061144')
+        pwd.send_keys('YOUR LIKESTOOL PASSWORD')
         sleep(2)
         btn = self.browser.find_element(By.XPATH, '//*[@id="login_form"]/div[4]/input')
         btn.click()
