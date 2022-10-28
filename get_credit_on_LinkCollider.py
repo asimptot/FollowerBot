@@ -27,11 +27,9 @@ class Instagram:
         #You must add your social media account to YouLikeHits system.
         print('Getting credits... Please do not terminate the program.')
         self.browser.get('https://www.linkcollider.com/page/activity/autosurf')
-
-    def close_browser(self):
-        Setup.close_browser(self)
+        while(True):
+            sleep(2)
 
 ig = Instagram()
 ig.setup()
 ig.go_to_website()
-#ig.close_browser()
