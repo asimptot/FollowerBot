@@ -1,13 +1,6 @@
 from selenium import webdriver
 from webdriver_manager.chrome import ChromeDriverManager
-import time
 import warnings
-from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.common.action_chains import ActionChains
-from selenium.webdriver.common.by import By
-from bs4 import BeautifulSoup
-import re
-from random import randint
 
 class Setup:
     def init(self):
