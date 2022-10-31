@@ -37,9 +37,6 @@ class Instagram:
             print(f"\nError! Your credits have been expired! Please change your Instagram username.")
             self.browser.save_screenshot('error.png')
 
-    def close_browser(self):
-        Setup.close_browser(self)
-
 ig = Instagram()
 ig.setup()
 
