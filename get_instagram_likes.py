@@ -2,7 +2,6 @@ from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
-from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
@@ -37,8 +36,11 @@ class Instagram:
             print(f"\nError! Your credits have been expired! Please change your Instagram username.")
             self.browser.save_screenshot('error.png')
 
-ig = Instagram()
-ig.setup()
+    def close_browser(self):
+        Setup.close_browser(self)
 
+ig = Instagram()
 while(True):
+    ig.setup()
     ig.go_to_website()
+    ig.close_browser()
