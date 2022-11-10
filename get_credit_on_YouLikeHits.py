@@ -20,14 +20,18 @@ class YouLikeHits:
         btn = self.browser.find_element(By.XPATH, '/html/body/table[2]/tbody/tr/td/table/tbody/tr/td/table/tbody/tr[2]/td/center/form/table/tbody/tr[3]/td/span/input')
         btn.click()
         sleep(2)
-
+        
         print('Getting credits... Please do not terminate the program.')
         while (True):
             self.browser.get('https://www.youlikehits.com/youtubenew2.php')
-            sleep(4)
-            yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
-            yt_view.click()
-            sleep(130)
+            try:
+                sleep(4)
+                yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
+                yt_view.click()
+                sleep(130)
+            except:
+                sleep(600)
+                print("\nAn error has been occurred. It will re-run again...")        
 
 ylh = YouLikeHits()
 ylh.setup()
