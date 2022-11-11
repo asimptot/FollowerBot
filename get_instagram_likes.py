@@ -5,7 +5,7 @@ from init import *
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
-username = input('What is your post link?\n')
+post_link = input('What is your post link?\n')
 
 class Instagram:
     def setup(self):
@@ -17,7 +17,7 @@ class Instagram:
         sleep(4)
 
         uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
-        uid.send_keys(username)
+        uid.send_keys(post_link)
         sleep(2)
 
         button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
