@@ -33,14 +33,10 @@ class YouLikeHits:
                 while (True):
                     self.browser.get('https://www.youlikehits.com/websites.php')
                     sleep(4)
-                    N = 15  # number of times you want to press TAB
-                    actions = ActionChains(self.browser)
-                    for _ in range(N):
-                        actions = actions.send_keys(Keys.TAB)
-                    actions.perform()
-                    sleep(2)
-                    actions.send_keys(Keys.ENTER)
-                    actions.perform()
+                    surf = WebDriverWait(self.browser, 10).until(
+                        EC.presence_of_element_located((By.LINK_TEXT, "Visit"))
+                    )
+                    surf.click()
                     sleep(25)
                     child = self.browser.window_handles[1]
                     self.browser.switch_to.window(child)
