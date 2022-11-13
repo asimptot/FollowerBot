@@ -47,7 +47,6 @@ class YouLikeHits:
     def close_browser(self):
         Setup.close_browser(self)
 
-
 ylh = YouLikeHits()
 
 while(True):
