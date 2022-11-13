@@ -22,7 +22,7 @@ class YouLikeHits:
         sleep(2)
 
         print('Getting credits... Please do not terminate the program.')
-        while (True):
+        while(True):
             self.browser.get('https://www.youlikehits.com/youtubenew2.php')
             try:
                 sleep(4)
@@ -30,7 +30,7 @@ class YouLikeHits:
                 yt_view.click()
                 sleep(130)
             except:
-                while (True):
+                while(True):
                     self.browser.get('https://www.youlikehits.com/websites.php')
                     sleep(4)
                     surf = WebDriverWait(self.browser, 10).until(
@@ -44,6 +44,15 @@ class YouLikeHits:
                     parent = self.browser.window_handles[0]
                     self.browser.switch_to.window(parent)
 
+    def close_browser(self):
+        Setup.close_browser(self)
+
+
 ylh = YouLikeHits()
-ylh.setup()
-ylh.go_to_website()
+
+while(True):
+    ylh.setup()
+    try:
+        ylh.go_to_website()
+    except:
+        ylh.close_browser()
