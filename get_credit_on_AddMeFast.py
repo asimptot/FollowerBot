@@ -22,13 +22,12 @@ class AddMeFast:
         button = self.browser.find_element(By.NAME, 'login_button')
         button.click()
         sleep(6)
-        
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Your point is: '+point.text)
 
         self.browser.get('https://addmefast.com/websites')
         while("No item" not in self.browser.page_source):
             sleep(25)
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Your point is: ' + point.text)
         delay = randint(1, 300)
         sleep(delay)
 
