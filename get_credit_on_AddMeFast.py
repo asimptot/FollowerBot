@@ -29,6 +29,7 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Your point is: ' + point.text)
         delay = randint(1, 300)
+        print('We could not find a content. Searching for a new website to surf...')
         sleep(delay)
 
     def close_browser(self):
