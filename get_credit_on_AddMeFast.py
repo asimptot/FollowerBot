@@ -12,7 +12,7 @@ class AddMeFast:
         sleep(4)
 
         username = self.browser.find_element(By.XPATH, '//*[@id="wrapper"]/section[2]/div/div[4]/form/div[1]/div[1]/input[1]')
-        username.send_keys(YOUR ADDMEFAST E-MAIL ADDRESS)
+        username.send_keys(YOUR ADDMEFAST USERNAME)
 
         password = self.browser.find_element(By.XPATH, '//*[@id="wrapper"]/section[2]/div/div[4]/form/div[1]/div[1]/input[2]')
         password.send_keys(YOUR ADDMEFAST PASSWORD)
@@ -88,7 +88,7 @@ class AddMeFast:
             )
             do_like.click()
             sleep(10)
-            
+
             self.browser.close()
             parent = self.browser.window_handles[0]
             self.browser.switch_to.window(parent)
@@ -108,16 +108,16 @@ class AddMeFast:
         Setup.close_browser(self)
 
 amf = AddMeFast()
-
+amf.setup()
+amf.login_instagram()
 while(True):
+    amf.surf_website()
     try:
-        amf.setup()
-        amf.login_instagram()
-        amf.surf_website()
         amf.youtube_view()
-        amf.instagram_like()
     except:
-        delay = randint(1, 300)
-        print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
-        sleep(delay)
-        amf.close_browser()
+        try:
+            amf.instagram_like()
+        except:
+            delay = randint(1, 300)
+            print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
+            sleep(delay)
