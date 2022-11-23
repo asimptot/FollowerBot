@@ -20,6 +20,8 @@ class AddMeFast:
         button.click()
         sleep(6)
         print('Logged in AddmeFast!')
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        print('Your current point is: ' + point.text)
 
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
