@@ -269,6 +269,6 @@ while(True):
                     try:
                         amf.instagram_like()
                     except:
-                        delay = randint(1, 300)
+                        delay = randint(180, 600)
                         print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
                         sleep(delay)
