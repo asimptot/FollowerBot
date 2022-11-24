@@ -47,7 +47,17 @@ class AddMeFast:
 
     def login_instagram(self):
         self.browser.get('https://www.instagram.com/')
-        sleep(10)
+        sleep(5)
+        
+        M = 6
+        actions = ActionChains(self.browser)
+        for _ in range(M):
+            actions = actions.send_keys(Keys.TAB)
+        actions.perform()
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+        sleep(5)
+        
         N = 2
         
         actions = ActionChains(self.browser)
