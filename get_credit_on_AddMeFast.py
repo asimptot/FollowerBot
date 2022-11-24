@@ -76,7 +76,7 @@ class AddMeFast:
 
     def instagram_like(self):
         self.browser.get('https://addmefast.com/free_points/instagram_likes')
-        while("No item" not in self.browser.page_source):
+        for i in range(180):
             sleep(4)
             like = WebDriverWait(self.browser, 10).until(
                 EC.presence_of_element_located((By.LINK_TEXT, "Like"))
