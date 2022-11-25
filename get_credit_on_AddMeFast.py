@@ -49,13 +49,10 @@ class AddMeFast:
         self.browser.get('https://www.instagram.com/')
         sleep(5)
 
-        M = 6
-        actions = ActionChains(self.browser)
-        for _ in range(M):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        cookies = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Only allow essential cookies')]"))
+        )
+        cookies.click()
         sleep(5)
 
         N = 2
@@ -264,13 +261,10 @@ class AddMeFast:
         self.browser.get('https://www.facebook.com/')
         sleep(5)
 
-        M = 25
-        actions = ActionChains(self.browser)
-        for _ in range(M):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        cookies = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.CLASS_NAME, '_9xo5'))
+        )
+        cookies.click()
         sleep(5)
 
         username = WebDriverWait(self.browser, 10).until(
