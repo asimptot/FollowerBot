@@ -277,7 +277,8 @@ class AddMeFast:
         )
         password.send_keys(YOUR FACEBOOK PASSWORD)
         sleep(2)
-
+        
+        actions = ActionChains(self.browser)
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(10)
