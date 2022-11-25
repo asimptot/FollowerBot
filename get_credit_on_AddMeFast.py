@@ -48,7 +48,7 @@ class AddMeFast:
     def login_instagram(self):
         self.browser.get('https://www.instagram.com/')
         sleep(5)
-        
+
         M = 6
         actions = ActionChains(self.browser)
         for _ in range(M):
@@ -57,9 +57,8 @@ class AddMeFast:
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(5)
-        
+
         N = 2
-        
         actions = ActionChains(self.browser)
         for _ in range(N):
             actions = actions.send_keys(Keys.TAB)
@@ -136,9 +135,8 @@ class AddMeFast:
             actions.send_keys(Keys.TAB)
             actions.perform()
             sleep(2)
-        actions.perform()
-        sleep(5)
-        actions.send_keys(YOUR TWITTER USERNAME')
+        sleep(3)
+        actions.send_keys(YOUR TWITTER USERNAME)
         actions.perform()
         sleep(2)
 
@@ -262,13 +260,108 @@ class AddMeFast:
             print('Retweet process is successfull! Your point is: ' + point.text)
             self.browser.refresh()
 
+    def login_facebook(self):
+        self.browser.get('https://www.facebook.com/')
+        sleep(5)
+
+        M = 25
+        actions = ActionChains(self.browser)
+        for _ in range(M):
+            actions = actions.send_keys(Keys.TAB)
+        actions.perform()
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+        sleep(5)
+
+        username = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.NAME, "email"))
+        )
+        username.send_keys(YOUR FACEBOOK USERNAME)
+
+        password = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.NAME, "pass"))
+        )
+        password.send_keys(YOUR FACEBOOK PASSWORD)
+        sleep(2)
+
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+        sleep(10)
+        print('Logged in Facebook!')
+
+    def facebook_followers(self):
+        self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
+        for i in range(180):
+            sleep(4)
+            like = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
+            )
+            like.click()
+            sleep(4)
+
+            child = self.browser.window_handles[1]
+            self.browser.switch_to.window(child)
+
+            N = 16
+            actions = ActionChains(self.browser)
+            for _ in range(N):
+                actions.send_keys(Keys.TAB)
+                actions.perform()
+            actions.send_keys(Keys.RETURN)
+            actions.perform()
+
+            self.browser.close()
+            parent = self.browser.window_handles[0]
+            self.browser.switch_to.window(parent)
+            sleep(15)
+
+            confirm = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.LINK_TEXT, "Confirm"))
+            )
+            confirm.click()
+            sleep(20)
+
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Facebook Followers process is successfull! Your point is: ' + point.text)
+            self.browser.refresh()
+
+    def facebook_share(self):
+        self.browser.get('https://addmefast.com/free_points/facebook_share')
+        for i in range(180):
+            sleep(4)
+            like = WebDriverWait(self.browser, 10).until(
+                EC.presence_of_element_located((By.LINK_TEXT, "Share"))
+            )
+            like.click()
+            sleep(8)
+
+            child = self.browser.window_handles[1]
+            self.browser.switch_to.window(child)
+
+            N = 8
+            actions = ActionChains(self.browser)
+            for _ in range(N):
+                actions.send_keys(Keys.TAB)
+                actions.perform()
+            actions.send_keys(Keys.RETURN)
+            actions.perform()
+            sleep(2)
+            parent = self.browser.window_handles[0]
+            self.browser.switch_to.window(parent)
+            sleep(15)
+
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Facebook Share process is successfull! Your point is: ' + point.text)
+            self.browser.refresh()
+
     def close_browser(self):
         Setup.close_browser(self)
 
 amf = AddMeFast()
 amf.setup()
-amf.login_twitter()
+amf.login_facebook()
 amf.login_instagram()
+amf.login_twitter()
 
 while(True):
     amf.surf_website()
@@ -276,17 +369,23 @@ while(True):
         amf.youtube_view()
     except:
         try:
-            amf.twitter_follow()
+            amf.twitter_like()
         except:
             try:
-                amf.twitter_like()
+                amf.twitter_retweet()
             except:
                 try:
-                    amf.twitter_retweet()
+                    amf.twitter_follow()
                 except:
                     try:
                         amf.instagram_like()
                     except:
-                        delay = randint(180, 600)
-                        print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
-                        sleep(delay)
+                        try:
+                            amf.facebook_followers()
+                        except:
+                            try:
+                                amf.facebook_share()
+                            except:
+                                delay = randint(180, 600)
+                                print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
+                                sleep(delay)
