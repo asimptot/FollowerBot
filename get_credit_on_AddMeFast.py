@@ -346,7 +346,6 @@ amf.setup()
 amf.login_facebook()
 amf.login_instagram()
 amf.login_twitter()
-amf.instagram_follow()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow, 
          amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share]
