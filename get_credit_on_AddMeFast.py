@@ -133,6 +133,31 @@ class AddMeFast:
         else:
             print('Logged in Instagram.')
 
+    def login_reddit(self):
+        self.browser.get('https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2F')
+
+        username = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.NAME, 'username'))
+        )
+        username.send_keys(YOUR REDDIT USERNAME)
+        sleep(2)
+
+        password = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.NAME, 'password'))
+        )
+        password.send_keys(YOUR REDDIT PASSWORD)
+        sleep(2)
+
+        actions = ActionChains(self.browser)
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+        sleep(10)
+
+        if "LOG IN" in self.browser.page_source:
+            print('Something went wrong in Reddit login process.')
+        else:
+            print('Logged in Reddit.')        
+            
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         while("No item" not in self.browser.page_source):
@@ -377,6 +402,34 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Facebook share process is successful. Your point is: ' + point.text)
 
+    def reddit_members(self):
+        self.browser.get('https://addmefast.com/free_points/reddit_members')
+        sleep(4)
+        join = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Join"))
+        )
+        join.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        do_join = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Join')]"))
+        )
+        do_join.click()
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Reddit members process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Reddit members process is successful. Your point is: ' + point.text)        
+            
     def close_browser(self):
         Setup.close_browser(self)
 
@@ -385,11 +438,10 @@ amf.setup()
 amf.login_facebook()
 amf.login_instagram()
 amf.login_twitter()
+amf.login_reddit()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share]
-
-
+         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, amf.reddit_members]
 
 while(True):
     try:
