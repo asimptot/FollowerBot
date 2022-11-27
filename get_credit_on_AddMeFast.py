@@ -20,9 +20,12 @@ class AddMeFast:
         button = self.browser.find_element(By.NAME, 'login_button')
         button.click()
         sleep(6)
-        print('Logged in AddmeFast!')
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Your current point is: ' + point.text)
+
+        if "Login" in self.browser.page_source:
+            print('Something went wrong in Addmefast login process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Logged in AddmeFast. Your current point is: ' + point.text)
 
     def login_facebook(self):
         self.browser.get('https://www.facebook.com/')
@@ -49,7 +52,10 @@ class AddMeFast:
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(10)
-        print('Logged in Facebook!')
+        if "Log In" in self.browser.page_source:
+            print('Something went wrong in Facebook login process.')
+        else:
+            print('Logged in Facebook.')
 
     def login_twitter(self):
         self.browser.get('https://twitter.com/i/flow/login')
@@ -85,7 +91,10 @@ class AddMeFast:
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(5)
-        print('Logged in Twitter!')
+        if "Log in" in self.browser.page_source:
+            print('Something went wrong in Twitter login process.')
+        else:
+            print('Logged in Twitter.')
 
     def login_instagram(self):
         self.browser.get('https://www.instagram.com/')
@@ -120,14 +129,20 @@ class AddMeFast:
         actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(10)
-        print('Logged in Instagram!')
+        if "Log in" in self.browser.page_source:
+            print('Something went wrong in Instagram login process.')
+        else:
+            print('Logged in Instagram.')
 
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         while("No item" not in self.browser.page_source):
             sleep(25)
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Web surfing process is successfull! Your point is: ' + point.text)
+            if "Oops!" in self.browser.page_source:
+                print('Something went wrong in web surfing process.')
+            else:
+                point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+                print('Web surfing process is successfull. Your point is: ' + point.text)
 
     def youtube_view(self):
         self.browser.get('https://addmefast.com/free_points/youtube_views')
@@ -139,8 +154,11 @@ class AddMeFast:
         WebDriverWait(self.browser, 100).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="content"]/div[1]/div[1]/div/strong[2]'))
         )
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Youtube view process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Youtube view process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Youtube view process is successfull. Your point is: ' + point.text)
 
     def instagram_like(self):
         self.browser.get('https://addmefast.com/free_points/instagram_likes')
@@ -175,8 +193,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Instagram like process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Instagram like process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Instagram like process is successfull. Your point is: ' + point.text)
 
     def instagram_follow(self):
         self.browser.get('https://addmefast.com/free_points/instagram')
@@ -202,8 +223,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Instagram follow process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Instagram follow process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Instagram follow process is successfull. Your point is: ' + point.text)
 
     def twitter_follow(self):
         self.browser.get('https://addmefast.com/free_points/twitter')
@@ -228,8 +252,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Twitter follow process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Twitter follow process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Twitter follow process is successfull. Your point is: ' + point.text)
 
     def twitter_like(self):
         self.browser.get('https://addmefast.com/free_points/twitter_likes')
@@ -254,8 +281,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Twitter like process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Twitter like process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Twitter like process is successfull. Your point is: ' + point.text)
 
     def twitter_retweet(self):
         self.browser.get('https://addmefast.com/free_points/twitter_retweets')
@@ -280,8 +310,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Retweet process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Twitter retweet process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Twitter retweet process is successfull. Your point is: ' + point.text)
 
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
@@ -309,8 +342,11 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Facebook follow process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Facebook follower process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Facebook followers process is successfull. Your point is: ' + point.text)
 
     def facebook_share(self):
         self.browser.get('https://addmefast.com/free_points/facebook_share')
@@ -336,8 +372,11 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(15)
 
-        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-        print('Facebook share process is successfull! Your point is: ' + point.text)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Facebook share process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Facebook share process is successfull. Your point is: ' + point.text)
 
     def close_browser(self):
         Setup.close_browser(self)
@@ -348,8 +387,10 @@ amf.login_facebook()
 amf.login_instagram()
 amf.login_twitter()
 
-array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow, 
+array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
          amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share]
+
+
 
 while(True):
     try:
