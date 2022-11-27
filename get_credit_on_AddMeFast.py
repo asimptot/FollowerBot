@@ -1,4 +1,3 @@
-import random
 from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
@@ -142,7 +141,7 @@ class AddMeFast:
                 print('Something went wrong in web surfing process.')
             else:
                 point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-                print('Web surfing process is successfull. Your point is: ' + point.text)
+                print('Web surfing process is successful. Your point is: ' + point.text)
 
     def youtube_view(self):
         self.browser.get('https://addmefast.com/free_points/youtube_views')
@@ -158,7 +157,7 @@ class AddMeFast:
             print('Something went wrong in Youtube view process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Youtube view process is successfull. Your point is: ' + point.text)
+            print('Youtube view process is successful. Your point is: ' + point.text)
 
     def instagram_like(self):
         self.browser.get('https://addmefast.com/free_points/instagram_likes')
@@ -197,7 +196,7 @@ class AddMeFast:
             print('Something went wrong in Instagram like process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Instagram like process is successfull. Your point is: ' + point.text)
+            print('Instagram like process is successful. Your point is: ' + point.text)
 
     def instagram_follow(self):
         self.browser.get('https://addmefast.com/free_points/instagram')
@@ -227,7 +226,7 @@ class AddMeFast:
             print('Something went wrong in Instagram follow process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Instagram follow process is successfull. Your point is: ' + point.text)
+            print('Instagram follow process is successful. Your point is: ' + point.text)
 
     def twitter_follow(self):
         self.browser.get('https://addmefast.com/free_points/twitter')
@@ -256,7 +255,7 @@ class AddMeFast:
             print('Something went wrong in Twitter follow process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter follow process is successfull. Your point is: ' + point.text)
+            print('Twitter follow process is successful. Your point is: ' + point.text)
 
     def twitter_like(self):
         self.browser.get('https://addmefast.com/free_points/twitter_likes')
@@ -285,7 +284,7 @@ class AddMeFast:
             print('Something went wrong in Twitter like process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter like process is successfull. Your point is: ' + point.text)
+            print('Twitter like process is successful. Your point is: ' + point.text)
 
     def twitter_retweet(self):
         self.browser.get('https://addmefast.com/free_points/twitter_retweets')
@@ -314,7 +313,7 @@ class AddMeFast:
             print('Something went wrong in Twitter retweet process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter retweet process is successfull. Your point is: ' + point.text)
+            print('Twitter retweet process is successful. Your point is: ' + point.text)
 
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
@@ -346,7 +345,7 @@ class AddMeFast:
             print('Something went wrong in Facebook follower process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Facebook followers process is successfull. Your point is: ' + point.text)
+            print('Facebook followers process is successful. Your point is: ' + point.text)
 
     def facebook_share(self):
         self.browser.get('https://addmefast.com/free_points/facebook_share')
@@ -376,7 +375,7 @@ class AddMeFast:
             print('Something went wrong in Facebook share process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Facebook share process is successfull. Your point is: ' + point.text)
+            print('Facebook share process is successful. Your point is: ' + point.text)
 
     def close_browser(self):
         Setup.close_browser(self)
