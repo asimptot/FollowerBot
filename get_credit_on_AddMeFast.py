@@ -82,6 +82,7 @@ class AddMeFast:
             actions.send_keys(Keys.TAB)
             actions.perform()
             sleep(2)
+        actions.send_keys(Keys.RETURN)
         actions.perform()
         sleep(5)
         print('Logged in Twitter!')
