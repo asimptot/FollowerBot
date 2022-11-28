@@ -120,7 +120,7 @@ class AddMeFast:
         N = 2
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions = actions.send_keys(Keys.TAB).perform()
+            actions.send_keys(Keys.TAB).perform()
         sleep(2)
         actions.send_keys(Keys.RETURN).perform()
         sleep(5)
@@ -174,7 +174,7 @@ class AddMeFast:
         N = 6
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions = actions.send_keys(Keys.TAB).perform()
+            actions.send_keys(Keys.TAB).perform()
         actions.send_keys(Keys.RETURN).perform()
         sleep(5)
 
