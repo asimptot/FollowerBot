@@ -14,7 +14,7 @@ class AddMeFast:
         username.send_keys(YOUR ADDMEFAST E-MAIL ADDRESS)
 
         password = self.browser.find_element(By.XPATH, '//*[@id="wrapper"]/section[2]/div/div[4]/form/div[1]/div[1]/input[2]')
-        password.send_keys(YOUR ADDMEFAST PASSWORD)
+        password.send_keys('YOUR ADDMEFAST PASSWORD)
 
         button = self.browser.find_element(By.NAME, 'login_button')
         button.click()
@@ -31,25 +31,21 @@ class AddMeFast:
         sleep(5)
 
         actions = ActionChains(self.browser)
-        actions.send_keys(YOUR GMAIL ADDRESS)
-        actions.perform()
+        actions.send_keys(YOUR GMAIL ADDRESS).perform()
         sleep(2)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(2)
 
-        actions.send_keys(YOUR GMAIL PASSWORD)
-        actions.perform()
+        actions.send_keys(YOUR GMAIL PASSWORD).perform()
         sleep(2)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
 
         sleep(10)
         if "Log In" in self.browser.page_source:
             print('Something went wrong in Gmail login process.')
         else:
-            print('Logged in Gmail.')        
-            
+            print('Logged in Gmail.')
+
     def login_facebook(self):
         self.browser.get('https://www.facebook.com/')
         sleep(15)
@@ -72,8 +68,7 @@ class AddMeFast:
         sleep(2)
 
         actions = ActionChains(self.browser)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(10)
         if "Log In" in self.browser.page_source:
             print('Something went wrong in Facebook login process.')
@@ -86,33 +81,26 @@ class AddMeFast:
         N = 4
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
+            actions.send_keys(Keys.TAB).perform()
             sleep(2)
         sleep(3)
-        actions.send_keys(YOUR TWITTER USERNAME)
-        actions.perform()
+        actions.send_keys(YOUR TWITTER USERNAME).perform()
         sleep(2)
 
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(2)
 
-        actions.send_keys(YOUR TWITTER PASSWORD)
-        actions.perform()
+        actions.send_keys(YOUR TWITTER PASSWORD).perform()
         sleep(2)
 
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(5)
 
         M = 2
         for _ in range(M):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
+            actions.send_keys(Keys.TAB).perform()
             sleep(2)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(5)
         if "Log in" in self.browser.page_source:
             print('Something went wrong in Twitter login process.')
@@ -132,10 +120,9 @@ class AddMeFast:
         N = 2
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions = actions.send_keys(Keys.TAB)
-        actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+            actions = actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
         sleep(5)
 
         username = WebDriverWait(self.browser, 10).until(
@@ -149,8 +136,7 @@ class AddMeFast:
         password.send_keys(YOUR INSTAGRAM PASSWORD)
         sleep(2)
 
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(10)
         if "Log in" in self.browser.page_source:
             print('Something went wrong in Instagram login process.')
@@ -173,15 +159,39 @@ class AddMeFast:
         sleep(2)
 
         actions = ActionChains(self.browser)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(10)
 
         if "LOG IN" in self.browser.page_source:
             print('Something went wrong in Reddit login process.')
         else:
-            print('Logged in Reddit.')        
-            
+            print('Logged in Reddit.')
+
+    def login_pinterest(self):
+        self.browser.get('https://www.pinterest.com/')
+        sleep(4)
+
+        N = 6
+        actions = ActionChains(self.browser)
+        for _ in range(N):
+            actions = actions.send_keys(Keys.TAB).perform()
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(5)
+
+        actions.send_keys(YOUR PINTEREST E-MAIL ADDRESS).perform()
+        sleep(2)
+        actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(YOUR PINTEREST PASSWORD).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(10)
+
+        if "Log In" in self.browser.page_source:
+            print('Something went wrong in Pinterest login process.')
+        else:
+            print('Logged in Pinterest.')
+
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         sleep(25)
@@ -220,16 +230,13 @@ class AddMeFast:
         N = 11
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+            actions.send_keys(Keys.TAB).perform()
         sleep(2)
-        actions.send_keys(Keys.TAB)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(2)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
         sleep(15)
         self.browser.close()
         parent = self.browser.window_handles[0]
@@ -287,8 +294,7 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(15)
         self.browser.close()
         parent = self.browser.window_handles[0]
@@ -316,8 +322,7 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(15)
         self.browser.close()
         parent = self.browser.window_handles[0]
@@ -345,8 +350,7 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+        actions.send_keys(Keys.RETURN).perform()
         sleep(15)
         self.browser.close()
         parent = self.browser.window_handles[0]
@@ -376,10 +380,10 @@ class AddMeFast:
         N = 16
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+            actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -410,10 +414,9 @@ class AddMeFast:
         N = 8
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+            actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
         sleep(2)
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -451,8 +454,8 @@ class AddMeFast:
             print('Something went wrong in Reddit members process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Reddit members process is successful. Your point is: ' + point.text)        
-    
+            print('Reddit members process is successful. Your point is: ' + point.text)
+
     def youtube_subscribe(self):
         self.browser.get('https://addmefast.com/free_points/youtube_subscribe')
         sleep(4)
@@ -468,10 +471,9 @@ class AddMeFast:
         N = 9
         actions = ActionChains(self.browser)
         for _ in range(N):
-            actions.send_keys(Keys.TAB)
-            actions.perform()
-        actions.send_keys(Keys.RETURN)
-        actions.perform()
+            actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
 
         sleep(15)
         self.browser.close()
@@ -484,7 +486,65 @@ class AddMeFast:
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Youtube subscribe process is successful. Your point is: ' + point.text)
-    
+
+    def pinterest_save(self):
+        self.browser.get('https://addmefast.com/free_points/pinterest_save')
+        sleep(4)
+        save = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Save"))
+        )
+        save.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        do_save = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Save')]"))
+        )
+        do_save.click()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Pinterest save process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Pinterest save process is successful. Your point is: ' + point.text)
+
+    def pinterest_followers(self):
+        self.browser.get('https://addmefast.com/free_points/pinterest')
+        sleep(4)
+        follow = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
+        )
+        follow.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        do_follow = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Follow')]"))
+        )
+        do_follow.click()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Pinterest follow process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Pinterest follow process is successful. Your point is: ' + point.text)
+
     def close_browser(self):
         Setup.close_browser(self)
 
@@ -493,17 +553,18 @@ amf.setup()
 amf.login_facebook()
 amf.login_gmail()
 amf.login_instagram()
+amf.login_pinterest()
 amf.login_reddit()
 amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
-         amf.reddit_members, amf.youtube_subscribe]
+            amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
+            amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers]
 
 while(True):
     try:
         choice(array)()
     except:
-        delay = randint(180, 600)
+        delay = randint(100, 300)
         print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
         sleep(delay)
