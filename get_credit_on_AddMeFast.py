@@ -185,7 +185,7 @@ class AddMeFast:
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         sleep(25)
-        if "Oops!" in self.browser.page_source:
+        if EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'No items')]")):
             print('Something went wrong in web surfing process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
