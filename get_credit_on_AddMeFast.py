@@ -26,6 +26,30 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Logged in AddmeFast. Your current point is: ' + point.text)
 
+    def login_gmail(self):
+        self.browser.get('https://mail.google.com')
+        sleep(5)
+
+        actions = ActionChains(self.browser)
+        actions.send_keys(YOUR GMAIL ADDRESS)
+        actions.perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+        sleep(2)
+
+        actions.send_keys(YOUR GMAIL PASSWORD)
+        actions.perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+
+        sleep(10)
+        if "Log In" in self.browser.page_source:
+            print('Something went wrong in Gmail login process.')
+        else:
+            print('Logged in Gmail.')        
+            
     def login_facebook(self):
         self.browser.get('https://www.facebook.com/')
         sleep(15)
@@ -429,19 +453,53 @@ class AddMeFast:
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Reddit members process is successful. Your point is: ' + point.text)        
-            
+    
+    def youtube_subscribe(self):
+        self.browser.get('https://addmefast.com/free_points/youtube_subscribe')
+        sleep(4)
+        subscribe = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Subscribe"))
+        )
+        subscribe.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        N = 9
+        actions = ActionChains(self.browser)
+        for _ in range(N):
+            actions.send_keys(Keys.TAB)
+            actions.perform()
+        actions.send_keys(Keys.RETURN)
+        actions.perform()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Youtube subscribe process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Youtube subscribe process is successful. Your point is: ' + point.text)
+    
     def close_browser(self):
         Setup.close_browser(self)
 
 amf = AddMeFast()
 amf.setup()
 amf.login_facebook()
+amf.login_gmail()
 amf.login_instagram()
-amf.login_twitter()
 amf.login_reddit()
+amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, amf.reddit_members]
+         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
+         amf.reddit_members, amf.youtube_subscribe]
 
 while(True):
     try:
