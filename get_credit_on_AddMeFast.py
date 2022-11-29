@@ -191,7 +191,32 @@ class AddMeFast:
             print('Something went wrong in Pinterest login process.')
         else:
             print('Logged in Pinterest.')
+    
+    def login_reverbnation(self):
+        self.browser.get('https://www.reverbnation.com/')
+        sleep(4)
 
+        sign_in = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Log In')]"))
+        )
+        sign_in.click()
+        sleep(5)
+        
+        actions = ActionChains(self.browser)
+        actions.send_keys(YOUR REVERBNATION E-MAIL ADDRESS).perform()
+        sleep(2)
+        actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(YOUR REVERBNATION PASSWORD).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(10)
+
+        if "Dashboard" in self.browser.page_source:
+            print('Logged in Reverbnation.')
+        else:
+            print('Something went wrong in Reverbnation login process.')
+                           
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         sleep(25)
@@ -544,7 +569,36 @@ class AddMeFast:
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Pinterest follow process is successful. Your point is: ' + point.text)
+                     
+    def reverbnation_fan(self):
+        self.browser.get('https://addmefast.com/free_points/reverbnation_fan')
+        sleep(4)
+        be_a_fan = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
+        )
+        be_a_fan.click()
+        sleep(8)
 
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        do_be_a_fan = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Become A Fan')]"))
+        )
+        do_be_a_fan.click()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Reverbnation fan process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Reverbnation fan process is successful. Your point is: ' + point.text)
+    
     def close_browser(self):
         Setup.close_browser(self)
 
@@ -555,11 +609,13 @@ amf.login_gmail()
 amf.login_instagram()
 amf.login_pinterest()
 amf.login_reddit()
+amf.login_reverbnation()
 amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-            amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
-            amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers]
+         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
+         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers,
+         amf.login_reverbnation]
 
 while(True):
     try:
