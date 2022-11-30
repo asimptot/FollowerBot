@@ -11,7 +11,6 @@ import undetected_chromedriver as uc
 class Setup:
     def init(self):
         chrome_options = uc.ChromeOptions()
-        chrome_options.headless = True
         chrome_options.add_argument('--headless')
         self.browser = uc.Chrome(options=chrome_options)
 
