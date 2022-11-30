@@ -41,10 +41,10 @@ class AddMeFast:
         actions.send_keys(Keys.RETURN).perform()
 
         sleep(10)
-        if "Log In" in self.browser.page_source:
-            print('Something went wrong in Gmail login process.')
-        else:
+        if "Inbox" in self.browser.page_source:
             print('Logged in Gmail.')
+        else:
+            print('Something went wrong in Gmail login process.')
 
     def login_facebook(self):
         self.browser.get('https://www.facebook.com/')
