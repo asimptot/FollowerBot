@@ -77,13 +77,12 @@ class AddMeFast:
 
     def login_twitter(self):
         self.browser.get('https://twitter.com/i/flow/login')
-
-        N = 4
+        sleep(10)
+        N = 3
         actions = ActionChains(self.browser)
         for _ in range(N):
             actions.send_keys(Keys.TAB).perform()
             sleep(2)
-        sleep(3)
         actions.send_keys(YOUR TWITTER USERNAME).perform()
         sleep(2)
 
@@ -392,6 +391,40 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Twitter retweet process is successful. Your point is: ' + point.text)
 
+    def twitter_tweets(self):
+        self.browser.get('https://addmefast.com/free_points/twitter_tweets')
+        sleep(4)
+        tweet = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Tweet"))
+        )
+        tweet.click()
+        sleep(10)
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        N = 10
+        actions = ActionChains(self.browser)
+        for _ in range(N):
+            actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(2)
+        confirm = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Confirm"))
+        )
+        confirm.click()
+        sleep(20)
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Twitter tweets process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Twitter tweets process is successful. Your point is: ' + point.text)                       
+                           
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
         sleep(4)
@@ -613,9 +646,8 @@ amf.login_reverbnation()
 amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
-         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers,
-         amf.login_reverbnation]
+         amf.twitter_tweets, amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
+         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan]
 
 while(True):
     try:
