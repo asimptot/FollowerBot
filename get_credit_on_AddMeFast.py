@@ -395,21 +395,21 @@ class AddMeFast:
         self.browser.get('https://addmefast.com/free_points/twitter_tweets')
         sleep(4)
         tweet = WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located((By.LINK_TEXT, "Tweet"))
+            EC.element_to_be_clickable((By.LINK_TEXT, "Tweet"))
         )
         tweet.click()
         sleep(10)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
 
-        N = 10
+        N = 15
         actions = ActionChains(self.browser)
         for _ in range(N):
             actions.send_keys(Keys.TAB).perform()
+            sleep(2)
         sleep(2)
         actions.send_keys(Keys.RETURN).perform()
-
-        sleep(15)
+        sleep(30)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -423,7 +423,7 @@ class AddMeFast:
             print('Something went wrong in Twitter tweets process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter tweets process is successful. Your point is: ' + point.text)                       
+            print('Twitter tweets process is successful. Your point is: ' + point.text)                      
                            
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
@@ -514,6 +514,37 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Reddit members process is successful. Your point is: ' + point.text)
 
+    def reddit_upvotes(self):
+        self.browser.get('https://addmefast.com/free_points/reddit_upvotes')
+        sleep(4)
+        upvote = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.LINK_TEXT, "Upvote"))
+        )
+        upvote.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        N = 15
+        actions = ActionChains(self.browser)
+        for _ in range(N):
+            actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Reddit upvotes process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Reddit upvotes process is successful. Your point is: ' + point.text)                           
+                           
     def youtube_subscribe(self):
         self.browser.get('https://addmefast.com/free_points/youtube_subscribe')
         sleep(4)
@@ -647,7 +678,8 @@ amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
          amf.twitter_tweets, amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
-         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan]
+         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan,
+         amf.reddit_upvotes]
 
 while(True):
     try:
