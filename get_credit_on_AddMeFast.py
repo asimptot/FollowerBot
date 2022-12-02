@@ -137,7 +137,7 @@ class AddMeFast:
 
         actions.send_keys(Keys.RETURN).perform()
         sleep(10)
-        if "Log in" in self.browser.page_source:
+        if "Log in" or "suspended" in self.browser.page_source:
             print('Something went wrong in Instagram login process.')
         else:
             print('Logged in Instagram.')
