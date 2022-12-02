@@ -215,6 +215,27 @@ class AddMeFast:
             print('Logged in Reverbnation.')
         else:
             print('Something went wrong in Reverbnation login process.')
+    
+    def login_okru(self):
+        self.browser.get('https://ok.ru/')
+        sleep(4)
+
+        actions = ActionChains(self.browser)
+        actions.send_keys(YOUR OKRU E-MAIL ADDRESS).perform()
+        sleep(2)
+        actions.send_keys(Keys.TAB).perform()
+        sleep(2)
+        actions.send_keys(YOUR OKRU PASSWORD).perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(10)
+
+        if "Home" in self.browser.page_source:
+            print('Logged in Okru.')
+        else:
+            print('Something went wrong in Ok.ru login process.')
+        self.browser.save_screenshot('okru.png')
+        sleep(2)
                            
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
@@ -663,6 +684,35 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Reverbnation fan process is successful. Your point is: ' + point.text)
     
+    def okru_join(self):
+        self.browser.get('https://addmefast.com/free_points/ok_group_join')
+        sleep(4)
+        join = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
+        )
+        join.click()
+        sleep(8)
+
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        do_join = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Join')]"))
+        )
+        do_join.click()
+
+        sleep(15)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(20)
+
+        if "Oops!" in self.browser.page_source:
+            print('Something went wrong in Ok.Ru join process.')
+        else:
+            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+            print('Ok.Ru join fan process is successful. Your point is: ' + point.text)
+                           
     def close_browser(self):
         Setup.close_browser(self)
 
@@ -671,6 +721,7 @@ amf.setup()
 amf.login_facebook()
 amf.login_gmail()
 amf.login_instagram()
+amf.login_okru()
 amf.login_pinterest()
 amf.login_reddit()
 amf.login_reverbnation()
@@ -679,7 +730,7 @@ amf.login_twitter()
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
          amf.twitter_tweets, amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
          amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan,
-         amf.reddit_upvotes]
+         amf.reddit_upvotes, amf.okru_join]
 
 while(True):
     try:
