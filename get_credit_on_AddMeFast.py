@@ -240,11 +240,12 @@ class AddMeFast:
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
         sleep(25)
-        if EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'No items')]")):
-            print('Something went wrong in web surfing process.')
-        else:
+        if EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'You will receive')]")):
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Web surfing process is successful. Your point is: ' + point.text)
+        else:
+            print('Something went wrong in web surfing process.')
+            self.browser.save_screenshot('web.png')
 
     def youtube_view(self):
         self.browser.get('https://addmefast.com/free_points/youtube_views')
