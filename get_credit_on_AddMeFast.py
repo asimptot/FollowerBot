@@ -738,9 +738,12 @@ array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retwe
          amf.reddit_upvotes, amf.okru_join]
 
 while(True):
-    try:
-        choice(array)()
-    except:
-        delay = randint(100, 300)
-        print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
-        sleep(delay)
+    list = sample(array, len(array))
+    for i in range(len(array)):
+        try:
+            list[i]()
+        except:
+            amf.no_content()
+            delay = randint(100, 300)
+            print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
+            sleep(delay)
