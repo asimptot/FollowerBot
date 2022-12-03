@@ -520,12 +520,16 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
 
-        do_join = WebDriverWait(self.browser, 10).until(
-            EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Join')]"))
-        )
-        do_join.click()
-        sleep(15)
-        self.browser.close()
+        if "Joined" in self.browser.page_source:
+            self.browser.close()
+        else:
+            do_join = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Join')]"))
+            )
+            do_join.click()
+            sleep(15)
+            self.browser.close()
+
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
         sleep(20)
