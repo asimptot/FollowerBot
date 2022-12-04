@@ -26,6 +26,9 @@ class AddMeFast:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
             print('Logged in AddmeFast. Your current point is: ' + point.text)
 
+    def no_content(self):
+        self.browser.save_screenshot('no_content.png')
+                           
     def login_gmail(self):
         self.browser.get('https://mail.google.com')
         sleep(5)
