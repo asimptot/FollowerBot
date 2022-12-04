@@ -619,7 +619,7 @@ class AddMeFast:
         )
         do_save.click()
 
-        sleep(15)
+        sleep(25)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
