@@ -6,6 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 
 username = input('What is your Instagram username?\n')
+print('Getting followers... Please do not terminate the program.')
 
 class Instagram:
     def setup(self):
