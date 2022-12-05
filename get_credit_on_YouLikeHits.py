@@ -28,10 +28,14 @@ class YouLikeHits:
                 sleep(4)
                 yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
                 yt_view.click()
-                sleep(130)
-                while("Points Added" in self.browser.page_source):
-                        yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
-                        yt_view.click()
+
+                while(True):
+                    element_present = EC.presence_of_element_located(
+                        (By.XPATH, "//*[contains(text(), 'Points Added')]"))
+                    WebDriverWait(self.browser, 1000).until(element_present)
+                    yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
+                    yt_view.click()
+                    
             except:
                 while(True):
                     self.browser.get('https://www.youlikehits.com/websites.php')
