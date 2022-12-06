@@ -7,6 +7,11 @@ class YouLikeHits:
     def setup(self):
         Setup.init(self)
 
+    def get_point(self):
+        point = self.browser.find_element(By.ID, 'currentpoints')
+        print('Your point is: ' + point.text)
+        return point
+
     def go_to_website(self):
         sleep(4)
         self.browser.get('https://www.youlikehits.com/login.php')
@@ -60,4 +65,5 @@ while(True):
     try:
         ylh.go_to_website()
     except:
+        ylh.get_point()
         sleep(300)
