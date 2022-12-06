@@ -35,7 +35,7 @@ class YouLikeHits:
                     WebDriverWait(self.browser, 1000).until(element_present)
                     yt_view = self.browser.find_element(By.XPATH, '//*[@id="listall"]/center/a[1]')
                     yt_view.click()
-                    
+
             except:
                 while(True):
                     self.browser.get('https://www.youlikehits.com/websites.php')
@@ -55,10 +55,9 @@ class YouLikeHits:
         Setup.close_browser(self)
 
 ylh = YouLikeHits()
-
+ylh.setup()
 while(True):
-    ylh.setup()
     try:
         ylh.go_to_website()
     except:
-        ylh.close_browser()
+        sleep(300)
