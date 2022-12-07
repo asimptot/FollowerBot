@@ -57,10 +57,11 @@ class YouLikeHits:
         Setup.close_browser(self)
 
 ylh = YouLikeHits()
-ylh.setup()
 while(True):
     try:
+        ylh.setup()
         ylh.go_to_website()
     except:
         ylh.get_point()
         print('Content not found to watch or surf. Refreshing webpage...')
+        ylh.close_browser()
