@@ -555,12 +555,10 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
 
-        N = 15
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions.send_keys(Keys.TAB).perform()
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
+        do_upvote = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "voteButton "))
+        )
+        do_upvote.click()
 
         sleep(15)
         self.browser.close()
@@ -572,7 +570,7 @@ class AddMeFast:
             print('Something went wrong in Reddit upvotes process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Reddit upvotes process is successful. Your point is: ' + point.text)                           
+            print('Reddit upvotes process is successful. Your point is: ' + point.text)                      
                            
     def youtube_subscribe(self):
         self.browser.get('https://addmefast.com/free_points/youtube_subscribe')
