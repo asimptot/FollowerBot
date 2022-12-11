@@ -258,7 +258,7 @@ class AddMeFast:
         WebDriverWait(self.browser, 100).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="content"]/div[1]/div[1]/div/strong[2]'))
         )
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Youtube view process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -294,7 +294,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Instagram like process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -324,7 +324,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Instagram follow process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -352,7 +352,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Twitter follow process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -380,7 +380,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Twitter like process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -408,7 +408,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Twitter retweet process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -442,7 +442,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Twitter tweets process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -474,7 +474,7 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Facebook follower process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -503,7 +503,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(15)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Facebook share process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -535,7 +535,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Reddit members process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -566,7 +566,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(5)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Reddit upvotes process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -597,7 +597,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Youtube subscribe process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -626,7 +626,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Pinterest save process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -655,7 +655,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Pinterest follow process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -684,7 +684,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Reverbnation fan process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
@@ -713,7 +713,7 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "Oops!" in self.browser.page_source:
+        if "wrong" in self.browser.page_source:
             print('Something went wrong in Ok.Ru join process.')
         else:
             point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
