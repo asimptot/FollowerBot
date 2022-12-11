@@ -564,7 +564,7 @@ class AddMeFast:
         sleep(30)
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
-        sleep(2)
+        sleep(5)
 
         if "Oops!" in self.browser.page_source:
             print('Something went wrong in Reddit upvotes process.')
