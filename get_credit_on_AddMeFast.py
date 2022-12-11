@@ -140,10 +140,10 @@ class AddMeFast:
 
         actions.send_keys(Keys.RETURN).perform()
         sleep(10)
-        if "Log in" or "suspended" in self.browser.page_source:
-            print('Something went wrong in Instagram login process.')
-        else:
+        if "Save" in self.browser.page_source:
             print('Logged in Instagram.')
+        else:
+            print('Something went wrong in Instagram login process.')
 
     def login_reddit(self):
         self.browser.get('https://www.reddit.com/login/?dest=https%3A%2F%2Fwww.reddit.com%2F')
