@@ -274,17 +274,13 @@ class AddMeFast:
         sleep(4)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
-        N = 11
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions.send_keys(Keys.TAB).perform()
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(2)
-        actions.send_keys(Keys.TAB).perform()
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(15)
+
+        do_like = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[starts-with(@id,"mount_0_0")]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div[1]/div[1]/article/div/div[3]/div/div/section[1]/span[1]/button'))
+        )
+        do_like.click()
+        sleep(20)
+
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
