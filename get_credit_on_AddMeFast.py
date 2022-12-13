@@ -751,9 +751,10 @@ class AddMeFast:
             )
             do_upvote.click()
         except:
-            sleep(5)
+            sleep(1)
 
-        sleep(30)
+        sleep(23)
+        self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
         sleep(10)
