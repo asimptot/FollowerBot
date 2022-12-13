@@ -953,9 +953,6 @@ array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retwe
          amf.facebook_share, amf.facebook_post_like, amf.facebook_post_share, amf.reddit_members, amf.reddit_upvotes,
          amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan, amf.okru_join]
 
-array = [amf.surf_website, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.pinterest_save, amf.pinterest_followers, amf.twitter_tweets, amf.okru_join,
-         amf.reddit_members, amf.instagram_like, amf.instagram_follow, amf.facebook_post_like]
 
 while(True):
     list = sample(array, len(array))
