@@ -2,7 +2,7 @@ from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
-from random import randint, choice
+from random import randint, sample
 
 class AddMeFast:
     def setup(self):
