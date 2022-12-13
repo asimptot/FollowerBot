@@ -241,16 +241,24 @@ class AddMeFast:
                            
     def surf_website(self):
         self.browser.get('https://addmefast.com/websites')
+        sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
+
         sleep(25)
-        if "You will receive" in self.browser.page_source:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Web surfing process is successful. Your point is: ' + point.text)
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point != point2:
+            print('Web surfing process is successful. Your point is: ' + point2)
         else:
             print('Something went wrong in web surfing process.')
 
     def youtube_view(self):
         self.browser.get('https://addmefast.com/free_points/youtube_views')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         watch = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "View Video"))
         )
@@ -258,15 +266,20 @@ class AddMeFast:
         WebDriverWait(self.browser, 100).until(
             EC.presence_of_element_located((By.XPATH, '//*[@id="content"]/div[1]/div[1]/div/strong[2]'))
         )
-        if "wrong" in self.browser.page_source:
+
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Youtube view process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Youtube view process is successful. Your point is: ' + point.text)
+            print('Youtube view process is successful. Your point is: ' + point2)
 
     def instagram_like(self):
         self.browser.get('https://addmefast.com/free_points/instagram_likes')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         like = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Like"))
         )
@@ -279,6 +292,7 @@ class AddMeFast:
             EC.element_to_be_clickable((By.XPATH, '//*[starts-with(@id,"mount_0_0")]/div/div/div/div[1]/div/div/div/div[1]/div[1]/div[2]/section/main/div[1]/div[1]/article/div/div[3]/div/div/section[1]/span[1]/button'))
         )
         do_like.click()
+
         sleep(20)
 
         self.browser.close()
@@ -290,15 +304,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Instagram like process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Instagram like process is successful. Your point is: ' + point.text)
+            print('Instagram like process is successful. Your point is: ' + point2)
 
     def instagram_follow(self):
         self.browser.get('https://addmefast.com/free_points/instagram')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         follow = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
         )
@@ -320,15 +338,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Instagram follow process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Instagram follow process is successful. Your point is: ' + point.text)
+            print('Instagram follow process is successful. Your point is: ' + point2)
 
     def twitter_follow(self):
         self.browser.get('https://addmefast.com/free_points/twitter')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         follow = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
         )
@@ -348,15 +370,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Twitter follow process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter follow process is successful. Your point is: ' + point.text)
+            print('Twitter follow process is successful. Your point is: ' + point2)
 
     def twitter_like(self):
         self.browser.get('https://addmefast.com/free_points/twitter_likes')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         like = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Like"))
         )
@@ -376,15 +402,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Twitter like process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter like process is successful. Your point is: ' + point.text)
+            print('Twitter like process is successful. Your point is: ' + point2)
 
     def twitter_retweet(self):
         self.browser.get('https://addmefast.com/free_points/twitter_retweets')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         retweet = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Retweet"))
         )
@@ -404,15 +434,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Twitter retweet process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter retweet process is successful. Your point is: ' + point.text)
+            print('Twitter retweet process is successful. Your point is: ' + point2)
 
     def twitter_tweets(self):
         self.browser.get('https://addmefast.com/free_points/twitter_tweets')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         tweet = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable((By.LINK_TEXT, "Tweet"))
         )
@@ -438,15 +472,19 @@ class AddMeFast:
         )
         confirm.click()
         sleep(20)
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Twitter tweets process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Twitter tweets process is successful. Your point is: ' + point.text)                      
-                           
+            print('Twitter tweets process is successful. Your point is: ' + point2)
+
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         like = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
         )
@@ -454,31 +492,84 @@ class AddMeFast:
         sleep(4)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
-        N = 16
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions.send_keys(Keys.TAB).perform()
+
         sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(10)
+        actions = ActionChains(self.browser)
+        actions.send_keys(Keys.ESCAPE).perform()
+        sleep(2)
+
+        try:
+            follow = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, '//*[starts-with(@id,"mount_0_0")]/div[1]/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[2]/div/div/div'))
+            )
+            follow.click()
+            sleep(2)
+            follow2 = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH,
+                                            '//*[starts-with(@id,"mount_0_0")]/div[1]/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[3]/div/div/div'))
+            )
+            follow2.click()
+            sleep(2)
+
+        except:
+            try:
+                follow3 = WebDriverWait(self.browser, 10).until(
+                    EC.element_to_be_clickable((By.XPATH,
+                                                '//*[starts-with(@id,"mount_0_0")]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div[2]/div/div/div[3]/div/div/div/div[2]/div/div/div[1]/div'))
+                )
+                follow3.click()
+                sleep(2)
+            except:
+                try:
+                    follow4 = WebDriverWait(self.browser, 10).until(
+                        EC.element_to_be_clickable((By.XPATH,
+                                                    '//*[starts-with(@id,"mount_0_0")]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[3]/div/div/div'))
+                    )
+                    follow4.click()
+                    sleep(2)
+                except:
+                    try:
+                        follow5 = WebDriverWait(self.browser, 10).until(
+                            EC.element_to_be_clickable((By.XPATH,
+                                                        '//*[starts-with(@id,"mount_0_0")]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div[2]/div/div/div[1]/div[2]/div/div/div/div[3]/div/div/div/div/div'))
+                        )
+                        follow5.click()
+                        sleep(2)
+                    except:
+                        try:
+                            follow6 = WebDriverWait(self.browser, 10).until(
+                                EC.element_to_be_clickable((By.XPATH,
+                                                            '//*[starts-with(@id,"mount_0_0")]/div/div[1]/div/div[3]/div/div/div/div[1]/div[1]/div/div/div[1]/div[2]/div/div/div/div[4]/div/div/div[2]/div/div/div'))
+                            )
+                            follow6.click()
+                            sleep(2)
+                        except:
+                            sleep(1)
+        sleep(5)
+
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
-        sleep(15)
+        sleep(5)
         confirm = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Confirm"))
         )
         confirm.click()
-        sleep(20)
-        if "wrong" in self.browser.page_source:
-            print('Something went wrong in Facebook follower process.')
+        sleep(5)
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+
+        if point == point2:
+            print('Something went wrong in Facebook followers process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Facebook followers process is successful. Your point is: ' + point.text)
+            print('Facebook followers process is successful. Your point is: ' + point2)
 
     def facebook_share(self):
         self.browser.get('https://addmefast.com/free_points/facebook_share')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         like = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Share"))
         )
@@ -499,15 +590,117 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(15)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Facebook share process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Facebook share process is successful. Your point is: ' + point.text)
+            print('Facebook share process is successful. Your point is: ' + point2)
+
+    def facebook_post_like(self):
+        self.browser.get('https://addmefast.com/free_points/facebook_post_like')
+        sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
+        like = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
+        )
+        like.click()
+        sleep(4)
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        sleep(2)
+        actions = ActionChains(self.browser)
+        actions.send_keys(Keys.ESCAPE).perform()
+        sleep(2)
+
+        try:
+            like = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Like')]"))
+            )
+            like.click()
+        except:
+            sleep(1)
+
+        sleep(10)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(5)
+        confirm = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Confirm"))
+        )
+        confirm.click()
+        sleep(5)
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+
+        if point == point2:
+            print('Something went wrong in Facebook post like process.')
+        else:
+            print('Facebook post like process is successful. Your point is: ' + point2)
+
+    def facebook_post_share(self):
+        self.browser.get('https://addmefast.com/free_points/facebook_post_share')
+        sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
+        share = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
+        )
+        share.click()
+        sleep(4)
+        child = self.browser.window_handles[1]
+        self.browser.switch_to.window(child)
+
+        sleep(2)
+        actions = ActionChains(self.browser)
+        actions.send_keys(Keys.ESCAPE).perform()
+        sleep(2)
+
+        try:
+            share = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Share')]"))
+            )
+            share.click()
+            sleep(2)
+
+            now = WebDriverWait(self.browser, 10).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Post')]"))
+            )
+            now.click()
+            sleep(2)
+
+        except:
+            sleep(1)
+
+        sleep(10)
+        self.browser.close()
+        parent = self.browser.window_handles[0]
+        self.browser.switch_to.window(parent)
+        sleep(5)
+        confirm = WebDriverWait(self.browser, 10).until(
+            EC.presence_of_element_located((By.LINK_TEXT, "Confirm"))
+        )
+        confirm.click()
+        sleep(10)
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+
+        if point == point2:
+            print('Something went wrong in Facebook post share process.')
+        else:
+            print('Facebook post share process is successful. Your point is: ' + point2)
 
     def reddit_members(self):
         self.browser.get('https://addmefast.com/free_points/reddit_members')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         join = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Join"))
         )
@@ -526,20 +719,23 @@ class AddMeFast:
             do_join.click()
             sleep(15)
             self.browser.close()
-
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Reddit members process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Reddit members process is successful. Your point is: ' + point.text)
+            print('Reddit members process is successful. Your point is: ' + point2)
 
     def reddit_upvotes(self):
         self.browser.get('https://addmefast.com/free_points/reddit_upvotes')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         upvote = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable((By.LINK_TEXT, "Upvote"))
         )
@@ -560,17 +756,21 @@ class AddMeFast:
         sleep(30)
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
-        sleep(5)
+        sleep(10)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Reddit upvotes process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Reddit upvotes process is successful. Your point is: ' + point.text)                   
-                           
+            print('Reddit upvotes process is successful. Your point is: ' + point2)
+
     def youtube_subscribe(self):
         self.browser.get('https://addmefast.com/free_points/youtube_subscribe')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         subscribe = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Subscribe"))
         )
@@ -593,15 +793,19 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Youtube subscribe process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Youtube subscribe process is successful. Your point is: ' + point.text)
+            print('Youtube subscribe process is successful. Your point is: ' + point2)
 
     def pinterest_save(self):
         self.browser.get('https://addmefast.com/free_points/pinterest_save')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         save = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Save"))
         )
@@ -622,15 +826,19 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Pinterest save process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Pinterest save process is successful. Your point is: ' + point.text)
+            print('Pinterest save process is successful. Your point is: ' + point2)
 
     def pinterest_followers(self):
         self.browser.get('https://addmefast.com/free_points/pinterest')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         follow = WebDriverWait(self.browser, 10).until(
             EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
         )
@@ -645,21 +853,25 @@ class AddMeFast:
         )
         do_follow.click()
 
-        sleep(15)
+        sleep(25)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Pinterest follow process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Pinterest follow process is successful. Your point is: ' + point.text)
-                     
+            print('Pinterest follow process is successful. Your point is: ' + point2)
+
     def reverbnation_fan(self):
         self.browser.get('https://addmefast.com/free_points/reverbnation_fan')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         be_a_fan = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
         )
@@ -680,15 +892,19 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Reverbnation fan process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Reverbnation fan process is successful. Your point is: ' + point.text)
-    
+            print('Reverbnation fan process is successful. Your point is: ' + point2)
+
     def okru_join(self):
         self.browser.get('https://addmefast.com/free_points/ok_group_join')
         sleep(4)
+        point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point = point.text
         join = WebDriverWait(self.browser, 10).until(
             EC.element_to_be_clickable((By.CLASS_NAME, "btn3"))
         )
@@ -709,17 +925,20 @@ class AddMeFast:
         self.browser.switch_to.window(parent)
         sleep(20)
 
-        if "wrong" in self.browser.page_source:
+        point2 = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
+        point2 = point2.text
+        sleep(2)
+        if point == point2:
             print('Something went wrong in Ok.Ru join process.')
         else:
-            point = self.browser.find_element(By.XPATH, '//*[@id="toppointsbalance"]')
-            print('Ok.Ru join fan process is successful. Your point is: ' + point.text)
-                           
+            print('Ok.Ru join fan process is successful. Your point is: ' + point2)
+
     def close_browser(self):
         Setup.close_browser(self)
 
 amf = AddMeFast()
 amf.setup()
+
 amf.login_facebook()
 amf.login_gmail()
 amf.login_instagram()
@@ -730,9 +949,13 @@ amf.login_reverbnation()
 amf.login_twitter()
 
 array = [amf.surf_website, amf.youtube_view, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
-         amf.twitter_tweets, amf.instagram_like, amf.instagram_follow, amf.facebook_followers, amf.facebook_share, 
-         amf.reddit_members, amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan,
-         amf.reddit_upvotes, amf.okru_join]
+         amf.twitter_tweets, amf.instagram_like, amf.instagram_follow, amf.facebook_followers, 
+         amf.facebook_share, amf.facebook_post_like, amf.facebook_post_share, amf.reddit_members, amf.reddit_upvotes,
+         amf.youtube_subscribe, amf.pinterest_save, amf.pinterest_followers, amf.reverbnation_fan, amf.okru_join]
+
+array = [amf.surf_website, amf.twitter_like, amf.twitter_retweet, amf.twitter_follow,
+         amf.pinterest_save, amf.pinterest_followers, amf.twitter_tweets, amf.okru_join,
+         amf.reddit_members, amf.instagram_like, amf.instagram_follow, amf.facebook_post_like]
 
 while(True):
     list = sample(array, len(array))
@@ -741,6 +964,6 @@ while(True):
             list[i]()
         except:
             amf.no_content()
-            delay = randint(100, 300)
+            delay = randint(10, 30)
             print('We could not find a content to collect points. We are waiting ' + str(delay) + ' seconds...')
             sleep(delay)
