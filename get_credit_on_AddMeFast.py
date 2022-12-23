@@ -821,7 +821,7 @@ class AddMeFast:
         )
         do_save.click()
 
-        sleep(20)
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -854,7 +854,7 @@ class AddMeFast:
         )
         do_follow.click()
 
-        sleep(25)
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
