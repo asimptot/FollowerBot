@@ -360,7 +360,7 @@ class AddMeFast:
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
         actions.send_keys(Keys.RETURN).perform()
-        sleep(15)
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -392,7 +392,7 @@ class AddMeFast:
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
         actions.send_keys(Keys.RETURN).perform()
-        sleep(15)
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -424,7 +424,7 @@ class AddMeFast:
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
         actions.send_keys(Keys.RETURN).perform()
-        sleep(15)
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
