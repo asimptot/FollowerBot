@@ -1,3 +1,6 @@
+# Usage
+install requirements in a new virtual environment using pip install -r requirements.txt.
+
 # FollowerBot
 Follower bot for Instagram:
 
