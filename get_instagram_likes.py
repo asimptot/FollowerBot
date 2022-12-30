@@ -2,10 +2,9 @@ from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.webdriver.support.ui import WebDriverWait
 
 post_link = input('What is your post link?\n')
+print('Getting likes... Please do not terminate the program.')
 
 class Instagram:
     def setup(self):
@@ -40,7 +39,17 @@ class Instagram:
         Setup.close_browser(self)
 
 ig = Instagram()
+j = 0
 while(True):
     ig.setup()
-    ig.go_to_website()
-    ig.close_browser()
+    i = 0
+    try:
+        while(True):
+            try:
+                ig.go_to_website()
+                i = i + 1
+            except:
+                ig.close_browser()
+        j = j + 1
+    except:
+        print('An error has been occurred. Retrying...')
