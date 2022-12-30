@@ -41,7 +41,17 @@ class Instagram:
         Setup.close_browser(self)
 
 ig = Instagram()
+j = 0
 while(True):
     ig.setup()
-    ig.go_to_website()
-    ig.close_browser()
+    i = 0
+    try:
+        while(True):
+            try:
+                ig.go_to_website()
+                i = i + 1
+            except:
+                ig.close_browser()
+        j = j + 1
+    except:
+        print('An error has been occurred. Retrying...')
