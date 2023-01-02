@@ -788,7 +788,7 @@ class AddMeFast:
         sleep(2)
         actions.send_keys(Keys.RETURN).perform()
 
-        sleep(25)
+        sleep(9)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
