@@ -293,8 +293,7 @@ class AddMeFast:
         )
         do_like.click()
 
-        sleep(20)
-
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
@@ -328,7 +327,8 @@ class AddMeFast:
             EC.element_to_be_clickable((By.XPATH, "//*[contains(text(), 'Follow')]"))
         )
         do_follow.click()
-        sleep(15)
+                           
+        sleep(10)
         self.browser.close()
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
