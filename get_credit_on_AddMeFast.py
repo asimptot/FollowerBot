@@ -753,8 +753,11 @@ class AddMeFast:
         except:
             sleep(1)
 
-        sleep(19)
-        self.browser.close()
+        try:
+            sleep(19)
+            self.browser.close()
+        except:
+            print('')
         parent = self.browser.window_handles[0]
         self.browser.switch_to.window(parent)
         sleep(10)
