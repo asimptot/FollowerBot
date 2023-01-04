@@ -28,6 +28,18 @@ class AddMeFast:
 
     def no_content(self):
         self.browser.save_screenshot('no_content.png')
+        sleep(4)
+        self.browser.get('https://addmefast.com/bonus_points')
+        sleep(4)
+
+        need = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[3]/center/div[2]/center/div/font/b')
+        need = need.text
+        sleep(2)
+
+        if int(need) >= 100:
+            print('Get your daily bonus')
+        else:
+            sleep(1)
                            
     def login_gmail(self):
         self.browser.get('https://mail.google.com')
