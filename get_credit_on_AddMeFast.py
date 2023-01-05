@@ -36,9 +36,13 @@ class AddMeFast:
         need = need.text
         sleep(2)
 
-        if int(need) >= 100:
-            print('Get your daily bonus')
-        else:
+        try:
+            if int(need) >= 100:
+                print('Get your daily bonus')
+                os._exit(0)
+            else:
+                sleep(1)
+        except:
             sleep(1)
                            
     def login_gmail(self):
