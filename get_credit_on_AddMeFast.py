@@ -471,13 +471,11 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
 
-        N = 15
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions.send_keys(Keys.TAB).perform()
-            sleep(2)
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
+        tweet = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[@id="react-root"]/div/div/div[2]/main/div/div/div[2]/div/div/div/div/div[3]/div/div'))
+        )
+        tweet.click()
+
         sleep(30)
         self.browser.close()
         parent = self.browser.window_handles[0]
@@ -495,6 +493,8 @@ class AddMeFast:
             print('Something went wrong in Twitter tweets process.')
         else:
             print('Twitter tweets process is successful. Your point is: ' + point2)
+        self.browser.save_screenshot('twitter_tweets.png')
+        sleep(2)
 
     def facebook_followers(self):
         self.browser.get('https://addmefast.com/free_points/facebook_subscribes')
