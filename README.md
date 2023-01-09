@@ -22,5 +22,6 @@ When you get expiration error on get_instagram_followers.py or get_instagram_lik
 Although you change your username and still get expiration error, please try VPN and start the bot again. For example: Hotspot Shield Free VPN program.
 
 # Donations
+If you feel like showing your love and/or appreciation for this project, then how about shouting me a coffee or beer :)
 
 <a href="https://www.buymeacoffee.com/asimzorlu" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/default-orange.png" alt="Buy Me A Coffee" height="41" width="174"></a>
