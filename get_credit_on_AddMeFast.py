@@ -371,7 +371,7 @@ class AddMeFast:
             EC.presence_of_element_located((By.LINK_TEXT, "Follow"))
         )
         follow.click()
-        sleep(10)
+        sleep(7)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
@@ -403,7 +403,7 @@ class AddMeFast:
             EC.presence_of_element_located((By.LINK_TEXT, "Like"))
         )
         like.click()
-        sleep(10)
+        sleep(8)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
@@ -435,7 +435,7 @@ class AddMeFast:
             EC.presence_of_element_located((By.LINK_TEXT, "Retweet"))
         )
         retweet.click()
-        sleep(10)
+        sleep(6.5)
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
         actions = ActionChains(self.browser)
