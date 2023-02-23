@@ -10,9 +10,17 @@ import undetected_chromedriver as uc
 
 class Setup:
     def init(self):
-        chrome_options = uc.ChromeOptions()
+        warnings.filterwarnings("ignore")
+        chrome_options = webdriver.ChromeOptions()
+        chrome_options.add_argument('--window-size=1036, 674')
+        chrome_options.add_experimental_option("excludeSwitches", ["enable-automation"])
+        chrome_options.add_experimental_option('useAutomationExtension', False)
         chrome_options.add_argument('--headless')
-        self.browser = uc.Chrome(options=chrome_options, version_main=108)
+        chrome_options.add_argument("--log-level=3")
+        chrome_options.add_experimental_option("prefs", {
+            "profile.default_content_setting_values.notifications": 1
+        })
+        self.browser = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options, )
 
     def close_browser(self):
         self.browser.close()
