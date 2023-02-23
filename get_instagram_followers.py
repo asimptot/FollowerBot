@@ -17,12 +17,23 @@ class Instagram:
         self.browser.get('https://tolinay.com/instagram-takipci-hilesi')
         sleep(4)
 
-        uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
-        uid.send_keys(username)
-        sleep(2)
+        #uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
+        #uid.send_keys(username)
+        #sleep(2)
 
-        button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
-        button.click()
+        #button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
+        #button.click()
+
+        N = 6
+        actions = ActionChains(self.browser)
+        for _ in range(N):
+            actions.send_keys(Keys.TAB).perform()
+
+        sleep(2)
+        actions.send_keys(username)
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(2)
 
         element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[2]/div[2]/div[1]/div/div/div[1]/div'))
         WebDriverWait(self.browser, 1000).until(element_present)
