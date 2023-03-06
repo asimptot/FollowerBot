@@ -808,7 +808,7 @@ class AddMeFast:
         child = self.browser.window_handles[1]
         self.browser.switch_to.window(child)
 
-        N = 9
+        N = 10
         actions = ActionChains(self.browser)
         for _ in range(N):
             actions.send_keys(Keys.TAB).perform()
