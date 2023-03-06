@@ -156,6 +156,13 @@ class AddMeFast:
 
         actions.send_keys(Keys.RETURN).perform()
         sleep(10)
+                           
+        cookies = WebDriverWait(self.browser, 10).until(
+            EC.element_to_be_clickable((By.XPATH, '//*[starts-with(@id,"mount_0_0")]/div/div/div[2]/div/div/div[1]/div/div[2]/div/div/div/div/div[2]/div/div/div[3]/div[3]/div/div[1]/div'))
+        )
+        cookies.click()
+        sleep(5)                   
+                           
         if "Save" in self.browser.page_source:
             print('Logged in Instagram.')
         else:
