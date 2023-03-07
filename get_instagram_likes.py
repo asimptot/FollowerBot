@@ -1,4 +1,3 @@
-from time import sleep
 import sys
 sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
@@ -15,54 +14,51 @@ class Instagram:
         self.browser.get('https://tolinay.com/instagram-begeni-hilesi')
         sleep(4)
 
-        '''
-        uid = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[1]/input')
+        uid = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[1]/input')
         uid.send_keys(post_link)
-        sleep(2)
-        button = self.browser.find_element(By.XPATH, '/html/body/div[2]/div[2]/div[2]/form/div/div[3]/button')
+        sleep(5)
+        button = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[3]/button')
         button.click()
-        '''
-
-        N = 6
-        actions = ActionChains(self.browser)
-        for _ in range(N):
-            actions.send_keys(Keys.TAB).perform()
-
-        sleep(2)
-        actions.send_keys(post_link)
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(2)
+        sleep(5)
 
         element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/div/div[1]/div'))
         WebDriverWait(self.browser, 1000).until(element_present)
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
             print(f"\nYou got 10 likes!")
-            self.browser.save_screenshot('liked.png')
+
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
-            self.browser.save_screenshot('error.png')
+
         else:
             print(f"\nError! Your credits have been expired! Please change your Instagram username.")
-            self.browser.save_screenshot('error.png')
+
+    def login_gmail(self):
+        self.browser.get('https://mail.google.com')
+        sleep(5)
+
+        actions = ActionChains(self.browser)
+        actions.send_keys('YOUR GMAIL ADDRESS').perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(2)
+
+        actions.send_keys('YOUR GMAIL PASSWORD').perform()
+        sleep(2)
+        actions.send_keys(Keys.RETURN).perform()
+        sleep(10)
+        self.browser.switch_to.new_window(WindowTypes.TAB)
 
     def close_browser(self):
         Setup.close_browser(self)
 
 ig = Instagram()
-j = 0
+
 while(True):
     ig.setup()
-    i = 0
+    ig.login_gmail()
     try:
-        while(True):
-            try:
-                ig.go_to_website()
-                sleep(5)
-                i = i + 1
-            except:
-                ig.close_browser()
-        j = j + 1
+        ig.go_to_website()
+        ig.close_browser()
     except:
         print('An error has been occurred. Retrying...')
