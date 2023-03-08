@@ -4,12 +4,23 @@ install requirements in a new virtual environment using pip install -r requireme
 # FollowerBot
 Follower bot for Instagram:
 
-After you run the program, enter your instagram username and get free Instagram followers. If you run it during 12 hours, you'll get 400 followers! No need to enter your password to the system. PS: You have to public profile to get free followers. 
+Before running the program, please enter your Gmail credentials. Because the server side added a control to send followers. If the server doesn't send followers to you anymore, please add a new Gmail account.
+After you run the program, enter your instagram username and get free Instagram followers. It sends 10 followers at a time! No need to enter your Instagram password to the system. PS: You have to have a public profile to get free followers. 
 
 # LikeBot
 Liker bot for Instagram:
 
-After you run the program, enter your instagram post URL and get free Instagram likes. If you run it during 1 day, you'll get 1570 likes! No need to enter your password to the system. PS: You have to public profile to get free likes.
+Before running the program, please enter your Gmail credentials. Because the server side added a control to send likes. If the server doesn't send likes to you anymore, please add a new Gmail account.
+After you run the program, enter your instagram post URL and get free Instagram likes. It sends 100 likes at a time! No need to enter your Instagram password to the system. PS: ou have to have a public profile to get free likes.
+
+# Open a Fake Gmail Account
+
+To open a fake Gmail account, please follow these steps.
+
+1) Go to create Gmail account web page.
+2) Find a unique Gmail address.
+3) To add mobile phone number, please use https://getfreesmsnumber.com/ web page.
+4) Confirm and here we go!
 
 # Get Credit
 
