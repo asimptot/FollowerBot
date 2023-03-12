@@ -25,7 +25,7 @@ class Instagram:
         WebDriverWait(self.browser, 1000).until(element_present)
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
-            print(f"\n10 followers followed you!")
+            print(f"\n20 followers followed you!")
 
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
