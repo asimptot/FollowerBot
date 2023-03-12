@@ -15,6 +15,9 @@ class Setup:
     def init(self):
         chrome_options = uc.ChromeOptions()
         chrome_options.add_argument("--headless=new")
+                prefs = {"credentials_enable_service": False,
+                 "profile.password_manager_enabled": False}
+        chrome_options.add_experimental_option("prefs", prefs)
         self.browser = uc.Chrome(options=chrome_options, version_main=110)
 
     def close_browser(self):
