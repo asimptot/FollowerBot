@@ -4,13 +4,13 @@ install requirements in a new virtual environment using pip install -r requireme
 # FollowerBot
 Follower bot for Instagram:
 
-Before running the program, please enter your Gmail credentials. Because the server side added a control to send followers. If the server doesn't send followers to you anymore, please add a new Gmail account.
+Before running the program, please enter your Gmail credentials. Because the server side added a control to send followers. If the server doesn't send followers to you anymore, please change your Instagram username.
 After you run the program, enter your instagram username and get free Instagram followers. It sends 10 followers at a time! No need to enter your Instagram password to the system. PS: You have to have a public profile to get free followers. 
 
 # LikeBot
 Liker bot for Instagram:
 
-Before running the program, please enter your Gmail credentials. Because the server side added a control to send likes. If the server doesn't send likes to you anymore, please add a new Gmail account.
+Before running the program, please enter your Gmail credentials. Because the server side added a control to send likes.
 After you run the program, enter your instagram post URL and get free Instagram likes. It sends 100 likes at a time! No need to enter your Instagram password to the system. PS: ou have to have a public profile to get free likes.
 
 # Open a Fake Gmail Account
