@@ -47,6 +47,16 @@ class Instagram:
         sleep(2)
         actions.send_keys(Keys.RETURN).perform()
         sleep(10)
+        #self.browser.save_screenshot('gmail_login.png')
+        word_list = ["Forgot", "Try again"]
+        context = self.browser.page_source
+
+        for word in word_list:
+            if word in context:
+                Instagram.login_gmail(self)
+            else:
+                sleep(2)
+
         self.browser.switch_to.new_window(WindowTypes.TAB)
 
     def close_browser(self):
@@ -54,7 +64,7 @@ class Instagram:
 
 ig = Instagram()
 
-while(True):
+while (True):
     ig.setup()
     ig.login_gmail()
     try:
