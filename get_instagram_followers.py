@@ -72,3 +72,4 @@ while (True):
         ig.close_browser()
     except:
         print('An error has been occurred. Retrying...')
+        ig.close_browser()
