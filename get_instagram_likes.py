@@ -32,6 +32,7 @@ class Instagram:
 
         else:
             print(f"\nError! Your credits have been expired! Please change your Instagram username.")
+            ig.close_browser()
 
     def login_gmail(self):
         self.browser.get('https://mail.google.com')
