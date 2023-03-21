@@ -64,7 +64,7 @@ class Instagram:
 
 ig = Instagram()
 
-while (True):
+while(True):
     ig.setup()
     ig.login_gmail()
     try:
