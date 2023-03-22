@@ -63,12 +63,11 @@ class Instagram:
         Setup.close_browser(self)
 
 ig = Instagram()
+ig.setup()
+ig.login_gmail()
 
 while(True):
-    ig.setup()
-    ig.login_gmail()
     try:
         ig.go_to_website()
     except:
         print('An error has been occurred. Retrying...')
-    ig.close_browser()
