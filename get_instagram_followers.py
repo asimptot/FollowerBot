@@ -71,3 +71,6 @@ while(True):
         ig.go_to_website()
     except:
         print('An error has been occurred. Retrying...')
+        ig.close_browser()
+        ig.setup()
+        ig.login_gmail()
