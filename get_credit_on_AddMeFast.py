@@ -58,12 +58,23 @@ class AddMeFast:
         actions.send_keys(YOUR GMAIL PASSWORD).perform()
         sleep(2)
         actions.send_keys(Keys.RETURN).perform()
-
         sleep(10)
+        
+        word_list = ["Forgot", "Try again"]
+        context = self.browser.page_source
+
+        for word in word_list:
+            if word in context:
+                AddMeFast.login_gmail(self)
+            else:
+                sleep(2)
+
         if "Inbox" in self.browser.page_source:
             print('Logged in Gmail.')
         else:
             print('Something went wrong in Gmail login process.')
+        self.browser.save_screenshot('gmail_login.png')
+        sleep(2)             
 
     def login_facebook(self):
         self.browser.get('https://www.facebook.com/')
