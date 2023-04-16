@@ -26,7 +26,7 @@ class Setup:
         prefs = {"credentials_enable_service": False,
                  "profile.password_manager_enabled": False}
         chrome_options.add_experimental_option("prefs", prefs)
-        self.browser = uc.Chrome(options=chrome_options, version_main=110)
+        self.browser = uc.Chrome(options=chrome_options, version_main=112)
 
     def close_browser(self):
         self.browser.quit()
