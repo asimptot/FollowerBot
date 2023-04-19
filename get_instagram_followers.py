@@ -64,7 +64,7 @@ class Instagram:
 
 ig = Instagram()
 ig.setup()
-ig.login_gmail()
+#ig.login_gmail()
 
 while(True):
     ig.go_to_website()
