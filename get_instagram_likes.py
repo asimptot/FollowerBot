@@ -1,5 +1,3 @@
-import sys
-sys.path.append(r'C:\\Projects\\Get_Free_Followers')
 from init import *
 
 post_link = input('What is your post link?\n')
@@ -14,24 +12,25 @@ class Instagram:
         self.browser.get('https://tolinay.com/instagram-begeni-hilesi')
         sleep(4)
 
-        uid = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[1]/input')
-        uid.send_keys(post_link)
-        sleep(5)
-        button = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[3]/button')
-        button.click()
-        sleep(5)
+        try:
+            uid = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[1]/input')
+            uid.send_keys(post_link)
+            sleep(5)
 
-        element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/div/div[1]/div'))
-        WebDriverWait(self.browser, 1000).until(element_present)
+            button = self.browser.find_element(By.XPATH, '/html/body/div[3]/div[2]/div[2]/form/div/div[3]/button')
+            button.click()
+            sleep(5)
+
+            element_present = EC.presence_of_element_located((By.XPATH, '/html/body/div[3]/div[2]/div[1]/div/div/div[1]/div'))
+            WebDriverWait(self.browser, 1000).until(element_present)
+        except:
+            print('\nSomething went wrong!\n')
 
         if("Başarıyla Gönderildi" in self.browser.page_source):
             print(f"\nYou got 100 likes!")
 
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
-
-        else:
-            print(f"\nError! Your credits have been expired! Please change your Instagram username.")
 
     def login_gmail(self):
         self.browser.get('https://mail.google.com')
