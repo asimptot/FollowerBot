@@ -47,8 +47,7 @@ class Setup:
         driver_path = "C:\Program Files\Google\Chrome\Application\chromedriver112.exe"  # Replace with the actual path on your system
 
         # Create a ChromeDriver service with the specified path
-        service = Service(driver_path)
-        self.browser = webdriver.Chrome(service=service, options=chrome_options)
+        self.browser = webdriver.Chrome(executable_path=driver_path, options=chrome_options)
 
     def close_browser(self):
         self.browser.quit()
