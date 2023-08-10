@@ -32,38 +32,11 @@ class Instagram:
         elif("Çok Hızlı İşlem Yapıyorsunuz" in self.browser.page_source):
             print(f"\nError! Do not run the program fast mode!")
 
-    def login_gmail(self):
-        self.browser.get('https://mail.google.com')
-        sleep(5)
-
-        actions = ActionChains(self.browser)
-        actions.send_keys('YOUR GMAIL ADDRESS').perform()
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(2)
-
-        actions.send_keys('YOUR GMAIL PASSWORD').perform()
-        sleep(2)
-        actions.send_keys(Keys.RETURN).perform()
-        sleep(10)
-        #self.browser.save_screenshot('gmail_login.png')
-        word_list = ["Forgot", "Try again"]
-        context = self.browser.page_source
-
-        for word in word_list:
-            if word in context:
-                Instagram.login_gmail(self)
-            else:
-                sleep(2)
-
-        self.browser.switch_to.new_window(WindowTypes.TAB)
-
     def close_browser(self):
         Setup.close_browser(self)
 
 ig = Instagram()
 ig.setup()
-ig.login_gmail()
 
 while(True):
     ig.go_to_website()
