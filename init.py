@@ -9,7 +9,6 @@ from random import randint, sample, choice
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.window import WindowTypes
-import undetected_chromedriver as uc
 from seleniumbase import Driver
 
 class Setup:
