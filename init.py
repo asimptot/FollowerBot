@@ -16,4 +16,5 @@ class Setup:
         self.browser = Driver(headless=True)
 
     def close_browser(self):
+        self.browser.delete_all_cookies()
         self.browser.quit()
