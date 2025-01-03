@@ -1,6 +1,6 @@
 from init import *
 
-post_link = input('What is your post link?\n')
+post_link = input('https://www.instagram.com/k.pphotographer/profilecard/?igsh=MXJsNWNxN2pvNDh6Mw==')
 print('Getting likes... Please do not terminate the program.')
 
 class Instagram:
