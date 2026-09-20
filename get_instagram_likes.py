@@ -1,6 +1,7 @@
 from init import *
 
 post_link = input('What is your post link?\n')
+print('NOTICE: This bot is no longer maintained. For Instagram likes and followers, please use https://heymerlin.app/')
 print('Getting likes... Please do not terminate the program.')
 
 class Instagram:

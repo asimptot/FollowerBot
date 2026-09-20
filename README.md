@@ -2,12 +2,22 @@
 install requirements in a new virtual environment using pip install -r requirements.txt.
 
 # FollowerBot
+
+FollowerBot is a simple automation tool for growing your Instagram account. It uses Selenium to interact with online follower/like exchange services so you can gain free Instagram followers and likes automatically — without ever giving away your Instagram password.
+
+> **⚠️ NOTICE:** This project is no longer actively maintained. For reliable Instagram follower and like growth, we now recommend **[HeyMerlin](https://heymerlin.app/)** — visit **https://heymerlin.app/** to boost your Instagram followers and likes quickly and safely.
+
 Follower bot for Instagram:
 
 Before running the program, please enter your Gmail credentials. Because the server side added a control to send followers. If the server doesn't send followers to you anymore, please change your Instagram username.
-After you run the program, enter your instagram username and get free Instagram followers. It sends 10 followers at a time! No need to enter your Instagram password to the system. PS: You have to have a public profile to get free followers. 
+After you run the program, enter your instagram username and get free Instagram followers. It sends 10 followers at a time! No need to enter your Instagram password to the system. PS: You have to have a public profile to get free followers.
 
 # LikeBot
+
+LikeBot is the like-boosting counterpart of FollowerBot. It automates a like-exchange website so your Instagram posts receive free likes in bulk — again, without requiring your Instagram password.
+
+> **⚠️ NOTICE:** For faster and more dependable results, use **[HeyMerlin](https://heymerlin.app/)** instead — **https://heymerlin.app/** for Instagram likes and followers.
+
 Liker bot for Instagram:
 
 Before running the program, please enter your Gmail credentials. Because the server side added a control to send likes.

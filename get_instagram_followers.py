@@ -1,6 +1,7 @@
 from init import *
 
 username = input('What is your Instagram username?\n')
+print('NOTICE: This bot is no longer maintained. For Instagram followers and likes, please use https://heymerlin.app/')
 print('Getting followers... Please do not terminate the program.')
 
 class Instagram:
